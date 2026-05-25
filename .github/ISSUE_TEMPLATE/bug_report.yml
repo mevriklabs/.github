@@ -1,0 +1,79 @@
+name: Bug report
+description: Something is broken or behaving unexpectedly.
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Fill in as much as you can — the more concrete, the faster the fix.
+        **Do not include customer data, secrets, or PII.** If this is a security issue, stop and email security@mevrik.com instead.
+
+  - type: input
+    id: summary
+    attributes:
+      label: One-line summary
+      placeholder: "Conversations panel returns 500 when a contact has no email"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in as a workspace admin
+        2. Open Conversations
+        3. Filter by …
+        4. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      placeholder: |
+        Expected: filter applies and shows matching conversations.
+        Actual: error toast "Something went wrong" and 500 in network tab.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product × Edition
+      multiple: true
+      options:
+        - "Mevrik AI Agent · Cloud"
+        - "Mevrik AX · Cloud+"
+        - "Mevrik AX · Private Cloud"
+        - "Mevrik AX · Sovereign"
+        - "Unknown / all"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      description: For self-hosted editions. SaaS — leave blank.
+      placeholder: "26.5.2 or commit sha"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, traces, screenshots
+      description: Paste relevant log lines. Redact tenant IDs and PII.
+      render: shell
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "S1 · production outage or data loss"
+        - "S2 · major feature broken, no workaround"
+        - "S3 · feature broken, workaround exists"
+        - "S4 · cosmetic or minor"
+    validations:
+      required: true

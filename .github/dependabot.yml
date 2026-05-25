@@ -1,0 +1,19 @@
+# Dependabot config for the .github repo itself (just workflow updates).
+# Per-repo dependabot.yml lives in each individual repo.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "mevriklabs/ax-backend"
+    commit-message:
+      prefix: "chore"
+      include: "scope"

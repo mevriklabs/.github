@@ -1,0 +1,66 @@
+name: Feature request
+description: Propose a new capability or improvement.
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for internal team-proposed features. Customer requests usually go through Linear or product first.
+
+  - type: input
+    id: summary
+    attributes:
+      label: One-line summary
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Whose pain is this? Be specific. Avoid "users want X".
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Including "do nothing" — sometimes that's the right call.
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Which layer does this touch?
+      multiple: true
+      options:
+        - "L1 — user-facing module"
+        - "L2 — Cortex"
+        - "L3 — Models"
+        - "Foundation (auth, tenancy, capability, billing)"
+        - "Trust (guardrails, kill switch, audit)"
+        - "Harness (primitives, hooks, runtime)"
+        - "Channels"
+        - "Integrations"
+        - "Deploy / infra"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Proposed phase
+      options:
+        - "Phase 1 (first 30 days)"
+        - "Phase 2 (Goal Engine + Zendesk migration era)"
+        - "Phase 3 (Network era)"
+        - "Backlog / unprioritised"
+    validations:
+      required: true
